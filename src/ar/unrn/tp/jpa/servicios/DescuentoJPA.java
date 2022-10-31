@@ -21,7 +21,7 @@ public class DescuentoJPA implements DescuentoService {
 
 	@Override
 	public void crearDescuentoSobreTotal(Date fechaDesde, Date fechaHasta, String tarjeta) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-mysql");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-objectdb");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		try {
@@ -45,7 +45,7 @@ public class DescuentoJPA implements DescuentoService {
 
 	@Override
 	public void crearDescuento(Date fechaDesde, Date fechaHasta, String marca) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-mysql");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-objectdb");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		try {
@@ -68,7 +68,7 @@ public class DescuentoJPA implements DescuentoService {
 
 	@Override
 	public List<Promociones> listarDescuentos() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-mysql");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-objectdb");
 		EntityManager em = emf.createEntityManager();
 		try {
 			// hacer algo con em

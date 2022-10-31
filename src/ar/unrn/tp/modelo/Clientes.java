@@ -19,7 +19,7 @@ public class Clientes {
 	private Long id;
 
 	@OneToMany(cascade = CascadeType.PERSIST)
-	private List<Tarjetas> tarjetas;
+	private List<Tarjetas> tarjetas = new ArrayList<Tarjetas>();
 
 	public Clientes() {
 
@@ -82,7 +82,7 @@ public class Clientes {
 		this.email = email;
 	}
 
-	public void setTarjetas(ArrayList<Tarjetas> tarjetas) {
+	public void setTarjetas(List<Tarjetas> tarjetas) {
 		this.tarjetas = tarjetas;
 	}
 
@@ -106,6 +106,21 @@ public class Clientes {
 			System.out.println(t.toString());
 		}
 
+	}
+
+	public String getNombre() {
+		return nombre + " " + apellido;
+	}
+
+	public Map<String, Object> Map() {
+		List<Map<String, Object>> tarjetasMap = new ArrayList<>();
+		if (tarjetas != null) {
+			for (Tarjetas tarjeta : tarjetas) {
+				tarjetasMap.add(tarjeta.Map());
+			}
+		}
+		return Map.of("id", id, "nombre", nombre, "apellido", apellido, "dni", dni, "email", email, "tarjetas",
+				tarjetasMap);
 	}
 
 }

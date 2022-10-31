@@ -1,5 +1,7 @@
 package ar.unrn.tp.modelo;
 
+import java.util.Map;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -45,6 +47,10 @@ public class Tarjetas {
 
 	public void descontarCompra(double monto) {
 		this.saldo = this.saldo - monto;
+	}
+
+	public Map<String, Object> Map() {
+		return Map.of("id", id, "descripcion", descripcion, "banco", banco, "digitos", digitos, "saldo", saldo);
 	}
 
 }

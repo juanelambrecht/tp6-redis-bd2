@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -25,6 +26,7 @@ public class Ventas {
 	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Productos> productos;
 	double montoTotal;
+	private String uniqueNumber;
 
 	public Ventas() {
 
@@ -41,7 +43,26 @@ public class Ventas {
 	@Override
 	public String toString() {
 		return "Ventas [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", cliente=" + cliente + ", productos="
-				+ productos + ", montoTotal=" + montoTotal + "]";
+				+ productos + ", montoTotal=" + montoTotal + ", uniqueNumber=" + uniqueNumber + "]";
+	}
+
+	public String getUniqueNumber() {
+		return uniqueNumber;
+	}
+
+	public void setUniqueNumber(String uniqueNumber) {
+		this.uniqueNumber = uniqueNumber;
+	}
+
+	public Map<String, Object> Map() {
+		String productosList = "";
+
+		for (Productos p : productos) {
+
+			productosList += p.getDescripcion() + "\n";
+		}
+
+		return Map.of("id", id, "fecha", fecha.toLocaleString(), "cliente", cliente.getNombre(), "productos", productosList);
 	}
 
 }

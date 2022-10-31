@@ -16,4 +16,11 @@ public interface VentaService {
 
 	// Devuelve todas las ventas realizadas
 	List ventas();
+
+	// Devuelve las ultimas 3 ventas
+	List ventasCache(Long idCliente);
+
+	List getVentasCache(Long idCliente);
+
+	// List getVentasCache(Long idCliente);
 }

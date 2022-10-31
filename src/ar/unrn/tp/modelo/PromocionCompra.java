@@ -3,7 +3,7 @@ package ar.unrn.tp.modelo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Map;
 import javax.persistence.Entity;
 
 @Entity
@@ -39,6 +39,12 @@ public class PromocionCompra extends Promociones {
 		}
 
 		return total;
+	}
+
+	@Override
+	public Map<String, Object> Map() {
+		// TODO Auto-generated method stub
+		return Map.of("tarjeta", tarjeta, "descuento", descuento, "marca", "");
 	}
 
 }

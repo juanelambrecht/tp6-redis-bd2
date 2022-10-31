@@ -2,7 +2,7 @@ package ar.unrn.tp.modelo;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,4 +31,6 @@ public abstract class Promociones {
 	double calculoPromocion(double total, ArrayList<Productos> productos, String tarjeta) {
 		return 0;
 	}
+
+	public abstract Map<String, Object> Map();
 }
